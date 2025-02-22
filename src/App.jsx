@@ -95,15 +95,6 @@ function App() {
             </ProtectedRoute>
           ),
         },
-
-        {
-          path: "checkout",
-          element: (
-            <ProtectedRoute>
-              <Checkout />
-            </ProtectedRoute>
-          ),
-        },
         {
           path: "allorders",
           element: (
@@ -118,6 +109,7 @@ function App() {
         },
         { path: "register", element: <Register /> },
         { path: "forgetpassword", element: <ForgetPassword /> },
+        { path: "resetcode", element: <ResetCode /> },
         { path: "login", element: <Login /> },
         { path: "*", element: <NotFound /> },
       ],

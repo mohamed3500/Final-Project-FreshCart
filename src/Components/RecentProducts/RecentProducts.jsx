@@ -55,6 +55,7 @@ export default function RecentProducts() {
       .get(`https://ecommerce.routemisr.com/api/v1/products`)
       .then((res) => {
         setProducts(res.data.data);
+        setNumberItems(response.data.numOfCartItems);
         // console.log(products);
         getWLIds();
         // console.log(res.data.data);

@@ -8,7 +8,7 @@ import { CartContext } from "../../Contexts/CartContext";
 export default function Cart() {
   let { deleteWishListItem, getLoggedUserWishList } =
     useContext(WishListContext);
-  const { addProductToCart } = useContext(CartContext);
+  const { addProductToCart, setNumberItems } = useContext(CartContext);
   let [isLoading, setIsLoading] = useState(true);
 
   const [wishListItems, setwishListItems] = useState(null);

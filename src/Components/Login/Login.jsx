@@ -125,7 +125,7 @@ export default function Login() {
               </Link>
             </p>
             <p>
-              Forget you password?{" "}
+              Forget your password?{" "}
               <Link
                 to={"/forgetpassword"}
                 className="text-blue-500 underline ms-1"

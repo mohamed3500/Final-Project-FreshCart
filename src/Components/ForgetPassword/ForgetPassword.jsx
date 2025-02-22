@@ -70,12 +70,9 @@ export default function ForgetPassword() {
           className="mt-2 text-sm text-gray-500 dark:text-gray-400"
         >
           We’ll never share your details. Read our{" "}
-          <a
-            href="#"
-            className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-          >
+          <span className="cursor-pointer font-medium text-blue-600 hover:underline dark:text-blue-500">
             Privacy Policy
-          </a>
+          </span>
           .
         </p>
         <button

@@ -9,13 +9,20 @@ import { WishListContext } from "../../Contexts/WishListContext";
 
 export default function RecentProducts() {
   let [products, setProducts] = useState([]);
-  let { addProductToCart, setNumberItems, numberItems } =
+  let { addProductToCart, setNumberItems, numberItems, getLoggedUserCart } =
     useContext(CartContext);
   const { addProductToWishList, getLoggedUserWishList, deleteWishListItem } =
     useContext(WishListContext);
   const [wLProdIds, setWLProdIds] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentId, setCurrentId] = useState(0);
+
+  async function getCartItems() {
+    let response = await getLoggedUserCart();
+    if (response.data.status == "success") {
+      setNumberItems(response.data.numOfCartItems);
+    }
+  }
 
   async function getWLIds() {
     let res = await getLoggedUserWishList();
@@ -57,6 +64,8 @@ export default function RecentProducts() {
       .get(`https://ecommerce.routemisr.com/api/v1/products`)
       .then((res) => {
         setProducts(res.data.data);
+        console.log(res.data);
+
         setNumberItems(response.data.numOfCartItems);
       })
       .catch(() => {});
@@ -65,6 +74,7 @@ export default function RecentProducts() {
   useEffect(() => {
     getProducts();
     getWLIds();
+    getCartItems();
   }, []);
 
   return (

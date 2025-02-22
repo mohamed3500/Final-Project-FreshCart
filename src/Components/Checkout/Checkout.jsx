@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import style from "./checkout.module.css";
+import style from "./Checkout.module.css";
 import { useFormik } from "formik";
 
 import { UserContext } from "../../Contexts/UserContext";

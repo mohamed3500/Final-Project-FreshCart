@@ -21,7 +21,10 @@ export default function RecentProducts() {
     let res = await getLoggedUserWishList();
     console.log(res);
     if (res.data.status == "success") {
+      // log(res.data.data);
       let ids = res.data.data.map((prod) => prod.id);
+      console.log(ids);
+
       setWLProdIds(ids);
     }
   }
@@ -57,7 +60,7 @@ export default function RecentProducts() {
         setProducts(res.data.data);
         setNumberItems(response.data.numOfCartItems);
         // console.log(products);
-        getWLIds();
+        // getWLIds();
         // console.log(res.data.data);
       })
       .catch(() => {});
@@ -65,7 +68,7 @@ export default function RecentProducts() {
 
   useEffect(() => {
     getProducts();
-    // getWLIds();
+    getWLIds();
   }, []);
 
   return (

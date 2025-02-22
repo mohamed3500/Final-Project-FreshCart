@@ -36,9 +36,9 @@ export default function Cart() {
   //   if (response.data.status == "success") {
   //     setwishListItems(response.data.data);
   //     console.log(response.data.data);
-  //     toast.success("Product Quantity Updated Successfully");
+  //     toast.success("Product Added to WishList");
   //   } else {
-  //     toast.error("Error Happened While Updating Product Quantity");
+  //     toast.error("Error Happened While Adding to Wishlist");
   //   }
   // }
 

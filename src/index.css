@@ -1,0 +1,31 @@
+@import "flowbite/src/themes/default";
+@import url("https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+.row {
+    @apply flex flex-wrap py-5 px-3;
+}
+
+.btn {
+    @apply text-white bg-emerald-600 px-4 py-2 rounded-lg w-full;
+}
+
+.product .btn {
+    transition: transform 1s, opacity 1s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.product:hover .btn {
+    opacity: 1;
+    transform: translateY(0%);
+
+}
+
+.btn-remove {
+    @apply text-red-900
+}

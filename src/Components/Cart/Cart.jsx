@@ -30,8 +30,8 @@ export default function Cart() {
     let response = await updateCartProductQuantity(id, count);
     if (response.data.status == "success") {
       setCartDetails(response.data.data);
-      console.log(response.data.data);
       if (count == 0) {
+        setNumberItems(response.data.numOfCartItems);
         toast.success("Product Removed from Cart");
       } else {
         toast.success("Product Quantity Updated Successfully");
@@ -44,7 +44,7 @@ export default function Cart() {
   async function deleteItem(productId) {
     let response = await deleteCartItem(productId);
     if (response.data.status == "success") {
-      setNumberItems(numberItems - 1);
+      setNumberItems(response.data.numOfCartItems);
       setCartDetails(response.data.data);
     }
   }

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import style from "./Checkout.module.css";
 import { useFormik } from "formik";
-
+import * as yup from "yup";
 import { UserContext } from "../../Contexts/UserContext";
 import { CartContext } from "../../Contexts/CartContext";
 
@@ -10,6 +10,15 @@ export default function Checkout() {
 
   const { setUserLogin } = useContext(UserContext);
 
+  const validationSchema = yup.object().shape({
+    details: yup.string().required("details are required"),
+    phone: yup
+      .string()
+      .matches(/^01[0125][0-9]{8}$/, "Phone is not a valid Egyptian number")
+      .required("Phone is required"),
+    city: yup.string().required("City is required"),
+  });
+
   const formik = useFormik({
     initialValues: {
       details: "",
@@ -17,7 +26,7 @@ export default function Checkout() {
       city: "",
     },
     onSubmit: () => handleCheckout(cartId, `http://localhost:5173`),
-    // validationSchema,
+    validationSchema,
   });
 
   async function handleCheckout(cartId, url) {
@@ -47,14 +56,14 @@ export default function Checkout() {
           >
             Details
           </label>
-          {/* {formik.errors.email && formik.touched.email ? (
+          {formik.errors.details && formik.touched.details ? (
             <div
               className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50  "
               role="alert"
             >
-              <span className="font-medium">{formik.errors.email}</span>
+              <span className="font-medium">{formik.errors.details}</span>
             </div>
-          ) : null} */}
+          ) : null}
         </div>
         <div className="relative z-0 w-full mb-5 group">
           <input
@@ -74,14 +83,14 @@ export default function Checkout() {
           >
             Phone
           </label>
-          {/* {formik.errors.password && formik.touched.password ? (
+          {formik.errors.phone && formik.touched.phone ? (
             <div
               className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50  "
               role="alert"
             >
-              <span className="font-medium">{formik.errors.password}</span>
+              <span className="font-medium">{formik.errors.phone}</span>
             </div>
-          ) : null} */}
+          ) : null}
         </div>
         <div className="relative z-0 w-full mb-5 group">
           <input
@@ -101,14 +110,14 @@ export default function Checkout() {
           >
             City
           </label>
-          {/* {formik.errors.password && formik.touched.password ? (
+          {formik.errors.city && formik.touched.city ? (
             <div
               className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50  "
               role="alert"
             >
-              <span className="font-medium">{formik.errors.password}</span>
+              <span className="font-medium">{formik.errors.city}</span>
             </div>
-          ) : null} */}
+          ) : null}
         </div>
         <div className="">
           <button

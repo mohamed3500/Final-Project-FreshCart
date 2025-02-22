@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import style from "./EnterNewPw.module.css";
+import style from "./EnterNewPW.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "./../../Contexts/UserContext";

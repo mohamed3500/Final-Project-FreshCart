@@ -16,6 +16,7 @@ export default function Cart() {
   async function addToCart(id) {
     let response = await addProductToCart(id);
     if (response.data.status == "success") {
+      setNumberItems(response.data.numOfCartItems);
       toast.success(response.data.message);
     } else {
       toast.error(response.data.message);

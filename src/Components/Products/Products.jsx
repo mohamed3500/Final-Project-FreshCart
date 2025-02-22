@@ -25,8 +25,6 @@ export default function Products() {
   }
 
   async function heartToggler(id) {
-    // console.log(wLProdIds.includes(id), "toggler");
-
     if (wLProdIds.includes(id)) {
       let res = await deleteWishListItem(id);
       setWLProdIds(res.data.data);
@@ -41,7 +39,7 @@ export default function Products() {
   // async function addProduct(id) {
   //   let response = await addProductToWishList(id);
   //   if (response.data.status == "success") {
-  //     console.log(response.data.data);
+
   //     toast.success("Product Added to WishList Successfully");
   //   } else {
   //     toast.error("Error Happened While Adding Product to WishList");
@@ -67,7 +65,6 @@ export default function Products() {
       .get(`https://ecommerce.routemisr.com/api/v1/products`)
       .then((res) => {
         setProducts(res.data.data);
-        // console.log(res.data.data);
       })
       .catch(() => {});
   }

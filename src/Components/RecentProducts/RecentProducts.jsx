@@ -19,11 +19,10 @@ export default function RecentProducts() {
 
   async function getWLIds() {
     let res = await getLoggedUserWishList();
-    console.log(res);
+
     if (res.data.status == "success") {
       // log(res.data.data);
       let ids = res.data.data.map((prod) => prod.id);
-      console.log(ids);
 
       setWLProdIds(ids);
     }
@@ -59,9 +58,6 @@ export default function RecentProducts() {
       .then((res) => {
         setProducts(res.data.data);
         setNumberItems(response.data.numOfCartItems);
-        // console.log(products);
-        // getWLIds();
-        // console.log(res.data.data);
       })
       .catch(() => {});
   }
@@ -110,7 +106,7 @@ export default function RecentProducts() {
                       "Add to Cart"
                     )}
                   </button>
-                  {/* {console.log(wLProdIds)} */}
+
                   <i
                     className={`fa-solid fa-heart text-xl cursor-pointer ${
                       wLProdIds.includes(product.id) ? "text-red-900" : ""

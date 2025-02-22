@@ -35,7 +35,7 @@ export default function Cart() {
   //   let response = await addProductToWishList(id);
   //   if (response.data.status == "success") {
   //     setwishListItems(response.data.data);
-  //     console.log(response.data.data);
+
   //     toast.success("Product Added to WishList");
   //   } else {
   //     toast.error("Error Happened While Adding to Wishlist");
@@ -54,7 +54,6 @@ export default function Cart() {
 
   // async function clearAllCart() {
   //   let response = await clearCart();
-  //   console.log(response);
 
   //   if (response.data.message == "success") {
   //     setCartDetails(response.data.data);

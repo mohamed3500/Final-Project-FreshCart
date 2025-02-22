@@ -51,7 +51,6 @@ export default function Cart() {
 
   async function clearAllCart() {
     let response = await clearCart();
-    console.log(response);
 
     if (response.data.message == "success") {
       setCartDetails(response.data.data);

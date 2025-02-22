@@ -20,16 +20,14 @@ export default function Login() {
       .then((res) => {
         setIsLoading(false);
         if (res.data.message == "success") {
-          console.log("hi");
           localStorage.setItem("userToken", res.data.token);
           setUserLogin(res.data.token);
           navigate("/");
         }
-        console.log(res);
       })
       .catch((err) => {
         setIsLoading(false);
-        console.log(err);
+
         setApiError(err.response.data.message);
       });
   }

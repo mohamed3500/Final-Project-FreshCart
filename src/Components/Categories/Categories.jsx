@@ -8,23 +8,12 @@ export default function Categories() {
   let [allCategories, setAllCategories] = useState(null);
   const [subCatOfCat, setSubCatOfCat] = useState(null);
   const [catName, setCatName] = useState("");
-  // function getAllCategories() {
-  //   axios
-  //     .get(`https://ecommerce.routemisr.com/api/v1/categories`)
-  //     .then((res) => {
-  //       console.log(res.data.data);
-  //       setAllCategories(res.data.data);
-  //       console.log(allCategories);
-  //     })
-  //     .catch((err) => {});
-  // }
 
   function getAllCategories() {
     axios
       .get(`https://ecommerce.routemisr.com/api/v1/categories`)
       .then((res) => {
         setAllCategories(res.data.data);
-        // console.log(products);
       })
       .catch((err) => {});
   }
@@ -49,7 +38,6 @@ export default function Categories() {
     <>
       <div className="row">
         {allCategories?.length > 0 ? (
-          // console.log(allCategories)
           // allCategories.map((cat) => {
           allCategories.map((cat, index) => (
             <div className=" w-auto md:w-1/4 p-5" key={index}>

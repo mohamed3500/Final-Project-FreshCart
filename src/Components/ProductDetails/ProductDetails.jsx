@@ -28,8 +28,6 @@ export default function ProductDetails() {
   }
 
   async function heartToggler(id) {
-    // console.log(wLProdIds.includes(id), "toggler");
-
     if (wLProdIds.includes(id)) {
       let res = await deleteWishListItem(id);
       setWLProdIds(res.data.data);
@@ -55,7 +53,7 @@ export default function ProductDetails() {
     let response = await addProductToCart(id);
     if (response.data.status == "success") {
       setNumberItems(response.data.numOfCartItems);
-      console.log(response.data.status);
+
       toast.success(response.data.message);
       setLoading(false);
     } else {

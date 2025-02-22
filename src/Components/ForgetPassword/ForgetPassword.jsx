@@ -25,9 +25,7 @@ export default function ForgetPassword() {
           navigate("/resetcode");
         }
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }
 
   const formik = useFormik({

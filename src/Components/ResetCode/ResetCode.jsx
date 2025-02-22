@@ -16,11 +16,8 @@ export default function ResetCode() {
         if (res.data.status == "Success") {
           navigate("/enternewpw");
         }
-        console.log(res);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }
 
   const formik = useFormik({

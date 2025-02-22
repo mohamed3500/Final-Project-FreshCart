@@ -25,7 +25,6 @@ export default function Register() {
           setUserLogin(res.data.token);
           navigate("/");
         }
-        console.log(res);
       })
       .catch((err) => {
         setIsLoading(false);

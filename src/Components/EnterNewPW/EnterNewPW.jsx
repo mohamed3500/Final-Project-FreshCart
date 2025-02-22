@@ -22,11 +22,8 @@ export default function EnterNewPw() {
           setUserLogin(res.data.token);
           navigate("/");
         }
-        console.log(res);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }
 
   const validationSchema = yup.object().shape({

@@ -14,11 +14,9 @@ export default function AllOrders() {
 
   function getUserOrders() {
     let { id } = jwtDecode(userToken);
-    console.log(id);
     axios
       .get(`https://ecommerce.routemisr.com/api/v1/orders/user/${id}`)
       .then((res) => {
-        console.log(res.data);
         setUserOrders(res.data);
         setIsLoading(false);
       })

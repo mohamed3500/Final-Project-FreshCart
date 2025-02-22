@@ -53,7 +53,7 @@ export default function Products() {
     setLoading(true);
     let response = await addProductToCart(id);
     if (response.data.status == "success") {
-      setNumberItems(numberItems + 1);
+      setNumberItems(response.data.numOfCartItems);
       toast.success(response.data.message);
       setLoading(false);
     } else {
